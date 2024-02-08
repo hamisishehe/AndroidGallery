@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -15,7 +16,7 @@ import java.io.File;
 
 public class ImageDetail extends AppCompatActivity {
     String imgPath;
-    private ImageView imageView;
+    private ImageView imageView, backbutton;
     private ScaleGestureDetector scaleGestureDetector;
 
     // on below line we are defining our scale factor.
@@ -31,6 +32,14 @@ public class ImageDetail extends AppCompatActivity {
 
         // initializing our image view.
         imageView = findViewById(R.id.idIVImage);
+        backbutton = findViewById(R.id.backbutton);
+
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         // on below line we are initializing our scale gesture detector for zoom in and out for our image.
         scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
@@ -40,7 +49,7 @@ public class ImageDetail extends AppCompatActivity {
 
         // if the file exists then we are loading that image in our image view.
         if (imgFile.exists()) {
-            Picasso.get().load(imgFile).placeholder(R.drawable.ic_launcher_background).into(imageView);
+            Picasso.get().load(imgFile).placeholder(R.drawable.logo).into(imageView);
         }
     }
 

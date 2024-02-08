@@ -54,6 +54,8 @@ public class Dashboard extends AppCompatActivity implements ActivityCompat.OnReq
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(manager);
+
+
         checkPermissions();
 
     }

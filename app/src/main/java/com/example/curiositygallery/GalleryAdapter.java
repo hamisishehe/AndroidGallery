@@ -62,12 +62,15 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
                 }
             }
         });
+
     }
 
     @Override
     public int getItemCount() {
         return images_list.size();
     }
+
+
 
     public GalleryAdapter(Context context, ArrayList<String> images_list) {
         this.context = context;
